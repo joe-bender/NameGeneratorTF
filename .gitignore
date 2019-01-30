@@ -2,3 +2,5 @@ __pycache__/
 npy/
 txt/
 writing/
+models/
+sandbox.py
