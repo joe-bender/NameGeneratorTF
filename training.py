@@ -12,7 +12,7 @@ embed_size = 128
 hidden_length = 128
 output_length = num_chars
 batch_size = 64
-epochs = 2
+epochs = 1
 learning_rate = .01
 validation_split = 0
 
@@ -27,7 +27,7 @@ model.compile(optimizer=adam,
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-model.fit(x, y, batch_size=batch_size, epochs=epochs, shuffle=True,
-    validation_split=validation_split)
-
-model.save('models/model.h5')
+for _ in range(2):
+    model.fit(x, y, batch_size=batch_size, epochs=epochs, shuffle=True,
+        validation_split=validation_split)
+    model.save('models/model.h5')

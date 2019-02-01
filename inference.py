@@ -8,8 +8,8 @@ model = tf.keras.models.load_model('models/model.h5')
 def name_gen(first_letter):
     name = first_letter
     for i_seq in range(sequence_length):
-        x_test = helpers.name_to_x(name, sequence_length)
-        y_pred = model.predict(x_test)
+        x = helpers.name_to_x(name, sequence_length)
+        y_pred = model.predict(x)
         name_ints = y_pred.argmax(axis=2)[0]
         letter = helpers.i_to_char[name_ints[i_seq]]
         if letter == ' ':
